@@ -26,7 +26,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" image="temp" translatesAutoresizingMaskIntoConstraints="NO" id="4pA-Iv-wYM">
                                         <rect key="frame" x="0.0" y="0.0" width="360" height="540"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -80,12 +80,13 @@
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd4-ah-owI">
-                                <rect key="frame" x="350" y="34" width="60" height="60"/>
+                                <rect key="frame" x="350" y="38" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="hcT-jg-nr4"/>
                                     <constraint firstAttribute="height" constant="60" id="wQy-ZE-owH"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" image="close"/>
                                 <connections>
                                     <action selector="onCloseButton:" destination="r8u-J2-8SP" eventType="touchUpInside" id="sLe-Fj-evU"/>
                                 </connections>
@@ -126,7 +127,7 @@
                             <constraint firstItem="aQH-CE-685" firstAttribute="trailing" secondItem="dTW-DS-tRt" secondAttribute="trailing" id="SXM-fH-g65"/>
                             <constraint firstItem="nwZ-jd-cEe" firstAttribute="top" secondItem="aQH-CE-685" secondAttribute="top" constant="10" id="gWy-cg-pnE"/>
                             <constraint firstItem="dTW-DS-tRt" firstAttribute="leading" secondItem="aQH-CE-685" secondAttribute="leading" id="nZi-ac-yub"/>
-                            <constraint firstItem="Dd4-ah-owI" firstAttribute="top" secondItem="aQH-CE-685" secondAttribute="top" constant="-10" id="pGJ-Ex-Act"/>
+                            <constraint firstItem="Dd4-ah-owI" firstAttribute="top" secondItem="aQH-CE-685" secondAttribute="top" constant="-6" id="pGJ-Ex-Act"/>
                             <constraint firstItem="aQH-CE-685" firstAttribute="trailing" secondItem="Dd4-ah-owI" secondAttribute="trailing" constant="4" id="vHC-0F-Cnr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aQH-CE-685"/>
@@ -156,6 +157,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="close" width="22" height="22"/>
         <image name="temp" width="360" height="540"/>
     </resources>
 </document>

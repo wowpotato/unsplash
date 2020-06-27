@@ -15,18 +15,7 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fog" translatesAutoresizingMaskIntoConstraints="NO" id="aPj-r4-RBJ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="aPj-r4-RBJ" secondAttribute="bottom" id="1qg-Tb-emk"/>
-                            <constraint firstAttribute="trailing" secondItem="aPj-r4-RBJ" secondAttribute="trailing" id="UDm-6b-ELL"/>
-                            <constraint firstItem="aPj-r4-RBJ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="qbE-7L-aXA"/>
-                            <constraint firstItem="aPj-r4-RBJ" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="skY-hk-KSi"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -35,7 +24,4 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="fog" width="1242" height="2688"/>
-    </resources>
 </document>

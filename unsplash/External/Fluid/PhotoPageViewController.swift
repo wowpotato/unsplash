@@ -157,12 +157,8 @@ class PhotoPageViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func didSingleTapWith(gestureRecognizer: UITapGestureRecognizer) {
-        if self.pageView.isHidden {
-            self.pageView.isHidden = false
-        }
-        else {
-            self.pageView.isHidden = true
-        }
+        self.pageView.isHidden = !self.pageView.isHidden
+        self.closeButton.isHidden = !self.closeButton.isHidden
     }
 
     //MARK:- Page

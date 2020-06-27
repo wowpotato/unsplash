@@ -2,21 +2,19 @@
 //  ListCell.swift
 //  unsplash
 //
-//  Created by myslab on 2020/06/26.
+//  Created by myslab on 2020/06/27.
 //  Copyright © 2020 mys. All rights reserved.
 //
 
 import UIKit
 
 class ListCell: UICollectionViewCell {
-    
+
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
     }
     
     func configure(_ image: Image) {
