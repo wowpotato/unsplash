@@ -10,7 +10,7 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
-    internal var barStyle: UIStatusBarStyle = .lightContent {
+    internal var barStyle: UIStatusBarStyle = .default {
         didSet {
             setNeedsStatusBarAppearanceUpdate()
         }

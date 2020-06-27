@@ -25,6 +25,8 @@ class ListViewController: BaseViewController, RouterProtocol, NVActivityIndicato
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.searchBar.backgroundImage = UIImage()
+        
         self.collectionView.registerNibCell(ListCell.self)
         
         self.viewModel.fetchList()
