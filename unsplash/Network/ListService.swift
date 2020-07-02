@@ -17,7 +17,8 @@ class ListService {
     func getImageList(_ page: Int, completion: @escaping ListResult) {
         let url = "\(Service.url)\(Service.photos)"
         let params = ["page":page.toString, "per_page":"30", "order_by":"popular", "client_id":Service.clientID, "client_secret":Service.clientSecret]
-        let items = params.map { "\($0)=\($1)" }
+        var items = params.map { "\($0)=\($1)" }
+        items.sort()
         let parameters = items.reduce("") { "\($0)&\($1)" }
         print("🚀🚀🚀 URL = \(url)?\(parameters)")
         
@@ -43,7 +44,8 @@ class ListService {
     func getSearchImageList(_ page: Int, _ query: String, completion: @escaping SearchResult) {
         let url = "\(Service.url)\(Service.searchPhotos)"
         let params = ["query":query, "page":page.toString, "per_page":"30", "order_by":"relevant", "client_id":Service.clientID, "client_secret":Service.clientSecret]
-        let items = params.map { "\($0)=\($1)" }
+        var items = params.map { "\($0)=\($1)" }
+        items.sort()
         let parameters = items.reduce("") { "\($0)&\($1)" }
         print("🚀🚀🚀 URL = \(url)?\(parameters)")
         

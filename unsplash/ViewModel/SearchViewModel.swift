@@ -9,16 +9,8 @@
 import Foundation
 
 class SearchViewModel: ListProtocol {
-    //MARK:- Networking
-    var page: Int = 0
-    var isLoading: Bool = false
+    var component: ListComponent = ListComponent()
     let listService = ListService()
-    
-    //MARK:- Protocol
-    var query: String = ""
-    var images: [Image] = []
-    var updateClosure: VoidClosure?
-    var animateClosure: BoolClosure?
     
     //MARK:- Private
     fileprivate var search: SearchImage?
@@ -26,22 +18,13 @@ class SearchViewModel: ListProtocol {
 
 extension SearchViewModel {
     func fetchList() {
-        guard self.isLoading == false else { return }
         guard self.query.isValid else { return }
-        self.isLoading = true
-        
-        self.page += 1
-        if self.page == 1 {
-            self.animateClosure?(true)
-        }
+        guard self.beforeFetch() else { return }
         listService.getSearchImageList(self.page, self.query) { [weak self] (searchImage) in
             guard let `self` = self else { return }
             guard let searchImage = searchImage, let results = searchImage.results else { return }
             self.search = searchImage
-            self.isLoading = false
-            self.images.append(contentsOf: results)
-            self.updateClosure?()
-            self.animateClosure?(false)
+            self.afterFetch(results)
         }
     }
     
@@ -52,6 +35,12 @@ extension SearchViewModel {
         guard indexPath.row > self.images.count / 2 else { return }
         
         self.fetchList()
+    }
+    
+    func resetFetchList() {
+        self.page = 0
+        self.images.removeAll()
+        self.updateClosure?()
     }
 }
 

@@ -8,33 +8,75 @@
 
 import Foundation
 
-protocol ListProtocol {
-    var page: Int { get set }
-    var updateClosure: VoidClosure? { get set }
-    var animateClosure: BoolClosure? { get set }
-    var images: [Image] { get set }
-    var query: String { get set }
+struct ListComponent {
+    var page: Int = 0
+    var isLoading: Bool = false
+    var images: [Image] = []
+    var query: String = ""
+    
+    var updateClosure: VoidClosure?
+    var animateClosure: BoolClosure?
+}
+
+protocol ListProtocol: class {
+    var component : ListComponent { get set }
     
     func fetchList()
     func nextFetchList(_ indexPath: IndexPath)
-    
-    mutating func updateCollectionView(_ closure: @escaping VoidClosure)
-    mutating func animating(_ closure: @escaping BoolClosure)
-    mutating func resetFetchList()
+    func resetFetchList()
+    func beforeFetch() ->  Bool
+    func afterFetch(_ images: [Image])
 }
 
-extension ListProtocol {
-    mutating func updateCollectionView(_ closure: @escaping VoidClosure) {
-        self.updateClosure = closure
+extension ListProtocol  {
+    var page: Int {
+        get { return component.page }
+        set {
+            component.page = newValue
+            if newValue == 1 {
+                self.animateClosure?(true)
+            }
+        }
+    }
+    var isLoading: Bool {
+        get { return component.isLoading }
+        set { component.isLoading = newValue }
     }
     
-    mutating func animating(_ closure: @escaping BoolClosure) {
-        self.animateClosure = closure
+    var images: [Image] {
+        get { return component.images }
+        set { component.images = newValue }
     }
     
-    mutating func resetFetchList() {
-        self.page = 0
-        self.images.removeAll()
+    var query: String {
+        get { return component.query }
+        set { component.query = newValue }
+    }
+    
+    var updateClosure: VoidClosure? {
+        get { return component.updateClosure }
+        set { component.updateClosure = newValue }
+    }
+    
+    var animateClosure: BoolClosure? {
+        get { return component.animateClosure }
+        set { component.animateClosure = newValue }
+    }
+
+    func resetFetchList() { }
+    
+    func beforeFetch() ->  Bool {
+        guard self.isLoading == false else { return false }
+        self.isLoading = true
+        self.page += 1
+        return true
+    }
+    
+    func afterFetch(_ images: [Image]) {
+        self.isLoading = false
+        self.images.append(contentsOf: images)
         self.updateClosure?()
+        self.animateClosure?(false)
     }
 }
+

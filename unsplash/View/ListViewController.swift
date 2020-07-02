@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import NVActivityIndicatorView
 
-class ListViewController: BaseViewController, RouterProtocol, NVActivityIndicatorViewable {
+class ListViewController: BaseViewController, RouterProtocol {
     static var storyboardName: String = Storyboard.Main.rawValue
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -29,14 +28,13 @@ class ListViewController: BaseViewController, RouterProtocol, NVActivityIndicato
         
         self.collectionView.registerNibCell(ListCell.self)
         
-        self.viewModel.fetchList()
-        self.viewModel.updateCollectionView { [weak self] () in
+        self.viewModel.updateClosure = { [weak self] () in
             guard let `self` = self else { return }
             self.searchBar.resignFirstResponder()
             self.collectionView.reloadData()
         }
         
-        self.viewModel.animating{ [weak self] (show) in
+        self.viewModel.animateClosure = { [weak self] (show) in
             guard let `self` = self else { return }
             if show {
                 self.startAnimating(type: .ballGridPulse)
@@ -45,6 +43,8 @@ class ListViewController: BaseViewController, RouterProtocol, NVActivityIndicato
                 self.stopAnimating()
             }
         }
+        
+        self.viewModel.fetchList()
     }
 }
 
