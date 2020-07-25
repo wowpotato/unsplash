@@ -44,7 +44,7 @@
 		E32E0E5524A5BCAB00EC9917 /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32E0E5424A5BCAB00EC9917 /* NSObjectExtensions.swift */; };
 		E32E0E5A24A5C57000EC9917 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E32E0E5924A5C57000EC9917 /* Alamofire */; };
 		E32E0E5C24A5C83000EC9917 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32E0E5B24A5C83000EC9917 /* Log.swift */; };
-		E32E0E5F24A5CA1900EC9917 /* ListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32E0E5E24A5CA1900EC9917 /* ListService.swift */; };
+		E32E0E5F24A5CA1900EC9917 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32E0E5E24A5CA1900EC9917 /* ServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,7 +84,7 @@
 		E32E0E5224A5BA9D00EC9917 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		E32E0E5424A5BCAB00EC9917 /* NSObjectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtensions.swift; sourceTree = "<group>"; };
 		E32E0E5B24A5C83000EC9917 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		E32E0E5E24A5CA1900EC9917 /* ListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListService.swift; sourceTree = "<group>"; };
+		E32E0E5E24A5CA1900EC9917 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				C0A1F2E524A6CE2200974F20 /* ListProtocol.swift */,
+				E32E0E5E24A5CA1900EC9917 /* ServiceProtocol.swift */,
 				E32E0E4B24A5A97C00EC9917 /* RouterProtocol.swift */,
 			);
 			path = Protocols;
@@ -251,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				C02EA14C24A609AC0069A0B6 /* Service.swift */,
-				E32E0E5E24A5CA1900EC9917 /* ListService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -366,7 +366,7 @@
 				C0A1F2E224A6C6D300974F20 /* SearchViewController.swift in Sources */,
 				C02EA15424A63BE90069A0B6 /* UIImageViewExtension.swift in Sources */,
 				C02EA16024A64EBB0069A0B6 /* ZoomAnimator.swift in Sources */,
-				E32E0E5F24A5CA1900EC9917 /* ListService.swift in Sources */,
+				E32E0E5F24A5CA1900EC9917 /* ServiceProtocol.swift in Sources */,
 				E32E0E4F24A5A9D300EC9917 /* StringExtension.swift in Sources */,
 				E32E0E4924A584DC00EC9917 /* ListViewModel.swift in Sources */,
 			);

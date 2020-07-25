@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct SearchImage: Codable {
-    
+struct SearchImage: ImageCodable {
     let total: Int?
     let totalPages: Int?
     var results: [Image]?
@@ -18,5 +17,9 @@ struct SearchImage: Codable {
         case total
         case totalPages = "total_pages"
         case results
+    }
+    
+    mutating func setSize() {
+        self.results?.modifyForEach { $1.setSize() }
     }
 }

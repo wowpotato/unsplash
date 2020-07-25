@@ -9,7 +9,11 @@
 import Foundation
 import UIKit
 
-struct Image: Codable {
+protocol ImageCodable: Decodable {
+    mutating func setSize()
+}
+
+struct Image: ImageCodable  {
     let id: String?
     let createdAt : String?
     let width: CGFloat?

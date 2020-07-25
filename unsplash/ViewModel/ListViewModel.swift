@@ -8,15 +8,14 @@
 
 import Foundation
 
-class ListViewModel: ListProtocol {
+class ListViewModel: ListProtocol, ServiceProtocol {
     var component: ListComponent = ListComponent()
-    let listService = ListService()
 }
 
 extension ListViewModel {
     func fetchList() {
         guard self.beforeFetch() else { return }
-        listService.getImageList(self.page) { [weak self] (images) in
+        self.getImageList(Image.self, self.page) { [weak self] (images) in
             guard let `self` = self else { return }
             self.afterFetch(images)
         }

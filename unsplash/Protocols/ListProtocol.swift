@@ -40,7 +40,13 @@ extension ListProtocol  {
     }
     var isLoading: Bool {
         get { return component.isLoading }
-        set { component.isLoading = newValue }
+        set {
+            component.isLoading = newValue
+            if !newValue {
+                self.updateClosure?()
+                self.animateClosure?(false)
+            }
+        }
     }
     
     var images: [Image] {
@@ -73,10 +79,8 @@ extension ListProtocol  {
     }
     
     func afterFetch(_ images: [Image]) {
-        self.isLoading = false
         self.images.append(contentsOf: images)
-        self.updateClosure?()
-        self.animateClosure?(false)
+        self.isLoading = false
     }
 }
 

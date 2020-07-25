@@ -14,6 +14,6 @@ typealias BoolClosure                   = (_ value: Bool) -> Void
 typealias IntegerClosure                = (_ value: Int) -> Void
 typealias AnyClosure                    = (_ value: Any?) -> Void
 typealias ImageClosure                  = (_ value: UIImage?) -> Void
-typealias ListResult                    = ([Image]) -> Void
+typealias ListResult                    = ([ImageCodable]) -> Void
 typealias SearchResult                  = (SearchImage?) -> Void
 

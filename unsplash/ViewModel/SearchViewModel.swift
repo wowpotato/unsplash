@@ -8,9 +8,8 @@
 
 import Foundation
 
-class SearchViewModel: ListProtocol {
+class SearchViewModel: ListProtocol, ServiceProtocol {
     var component: ListComponent = ListComponent()
-    let listService = ListService()
     
     //MARK:- Private
     fileprivate var search: SearchImage?
@@ -20,7 +19,7 @@ extension SearchViewModel {
     func fetchList() {
         guard self.query.isValid else { return }
         guard self.beforeFetch() else { return }
-        listService.getSearchImageList(self.page, self.query) { [weak self] (searchImage) in
+        self.getSearchImageList(self.page, self.query) { [weak self] (searchImage) in
             guard let `self` = self else { return }
             guard let searchImage = searchImage, let results = searchImage.results else { return }
             self.search = searchImage
